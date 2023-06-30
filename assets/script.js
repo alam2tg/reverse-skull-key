@@ -7,6 +7,7 @@ var uppercase = [];
 var numbers = [];
 var specialChars = [];
 
+//generate integer arrays to convert to characters using ascii value.
 var asciiLowercaseArray=[];
     for(var i=97; i<123; i++) {
         asciiLowercaseArray.push(i);
@@ -98,19 +99,21 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // PHASE 1 
-// Create the variables and get the info we need (Lines 1-81)
+// Create the variables and get the info we need (Lines 1-82)
 
 // What do we need to do? 
 var availableChars = []
     //must PROMPT use for length of word (8-128)(use PROMPT)
-    prompt("Enter password character length (must be 8-128 characters)")
+    prompt("Enter password character length (must be 8-128 characters)");
     //confirm user for upper/lower case (yes no?) - use CONFIRM
         //if yes, add 'lowercase'
         //if yes, add 'uppercase'
-    
+    prompt("Would you like to include lower-case letters? Type 'Yes' or 'No'");
+    prompt("Would you like to include upper-case letters?");
     //confirm user if they'd like to use numbers
-        
+    prompt("Would you like to include numbers?");    
     //confirm user if they'd like to use special characters
+    prompt("Would you like to include special characters? (ex. !@#$%)");
         //if yes, add 'special characters'
     //Create a pool of available characters
         //available chars are added if user confirms 'YES'
