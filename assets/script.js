@@ -102,13 +102,29 @@ generateBtn.addEventListener("click", writePassword);
 // Create the variables and get the info we need (Lines 1-82)
 
 // What do we need to do? 
-var availableChars = []
-    //must PROMPT use for length of word (8-128)(use PROMPT)
-    prompt("Enter password character length (must be 8-128 characters)");
+var availableChars = [] 
+    //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++);
+
+    
+ 
+
+var userInput = prompt("Please enter a password length between 8-128 characters.");
+    var invalidInputs = [userInput<8 || userInput>128];
+    do {
+        userInput = prompt("Please enter a password length between 8-128 characters.");
+       // userInput=prompt("Please enter a password length between 8-128 characters.");
+       //if(invalidInputs.includes(userInput))
+    }
+    while (userInput<8 || userInput>128);
+    
+
+
     //confirm user for upper/lower case (yes no?) - use CONFIRM
-        //if yes, add 'lowercase'
+        //if yes, add 'lowercase' -- confirms
         //if yes, add 'uppercase'
-    prompt("Would you like to include lower-case letters? Type 'Yes' or 'No'");
+    var lowercaseConfirm = 
+    confirm("Would you like to include lower-case letters? Type 'Yes' or 'No'")
+        
     prompt("Would you like to include upper-case letters?");
     //confirm user if they'd like to use numbers
     prompt("Would you like to include numbers?");    
