@@ -61,7 +61,7 @@ var asciiSpecialCharsArray3=[]
 
 var asciiSpecialCharsArray4=[]
     for(var i=123; i<127; i++) {
-    asciiSpecialCharsArray3.push(i);
+    asciiSpecialCharsArray4.push(i);
     }
     console.log(asciiSpecialCharsArray4);
 
@@ -79,6 +79,14 @@ console.log(specialCharsArray);
 /*Special Character Array - "((32) ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'])" - from console.log 
 
 ascii table - https://www.w3schools.com/charsets/ref_html_ascii.asp*/
+
+//check available chars
+var availableChars = lowercaseArray.concat(
+    uppercaseArray.concat(
+        numbersArray.concat(specialCharsArray)))
+
+console.log(availableChars);
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -99,59 +107,58 @@ generateBtn.addEventListener("click", writePassword);
 // Create the variables and get the info we need (Lines 1-82)
 
 // What do we need to do? 
+    //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++)
+
 function writePassword() {
-  
-    var availableChars = []; 
-    var lowercaseArray = [];
-    var uppercaseArray = [];
-    var numbersArray= [];
-    var specialCharsArray = [];
-    var passwordResult = '';
-    //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++);
+    let addChars = [];
+    let passwordResult = '';
 
+    let userInput = window.prompt("Please enter a password length between 8-128 characters.")
 
-let userInput = window.prompt("Please enter a password length between 8-128 characters.");
-        do {
-            userInput = prompt("Please enter a password length between 8-128 characters.")
-        }
-        while (userInput<8 || userInput>128);
-
-    
-    //confirm user for upper/lower case (yes no?) - use CONFIRM
-        //if yes, add 'lowercase' -- confirms
-        //if yes, add 'uppercase'
-    if (window.confirm("Would you like to include lowercase letters in your password?")) 
-            {
-            availableChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
-            passwordResult += lowercaseArray;
-            userInput--;
+    if(userInput < 8 || userInput > 128) {
+            window.alert("Please enter a value between 8-128");
+    } else {  
+    //confirm user for upper/lower/number/special (yes no?) - use CONFIRM
+        //if yes, add 'lowercase' -- confirm
+            if (window.confirm("Would you like to include lowercase letters in your password?")) {
+                    
+                    addChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
+                    passwordResult += lowercaseArray;
             }
 
-    if (window.confirm("Would you like to include uppercase letters in your password?")) 
-            {
-            availableChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
-            passwordResult += uppercaseArray;
-            userInput--;
+                        //if yes, add 'uppercase' -- confirm
+
+            if (window.confirm("Would you like to include uppercase letters in your password?")) {
+                            
+                    addChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
+                    passwordResult += uppercaseArray;
             }
 
-        //confirm user if they'd like to use numbers
-    if (window.confirm("Would you like to include numbers in your password?")) 
-            {
-            availableChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
-            password += numbersArray;
-            userInput--;
+                        //confirm user if they'd like to use numbers
+            if (window.confirm("Would you like to include numbers in your password?")) {
+                    addChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
+                    password += numbersArray;
             }
-        
-        //confirm user if they'd like to use special characters
-    if (window.confirm("Would you like to include special letters in your password?")) 
-            {
-            availableChars.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
-            passwordResult += specialCharsArray;
-            userInput--;
+                        
+                        //confirm user if they'd like to use special characters
+            if (window.confirm("Would you like to include special letters in your password?")) {
+                    addChars.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
+                    passwordResult += specialCharsArray;
             }   
-        }
+    }
+    passwordResult = passwordResult.join('');
+    return passwordResult;
+}
 
-        console.log(availableChars);
+function generatePassword() {
+    var length = availableChars.length
+    var charset = availableChars
+    passwordResult = '';
+    for (var i=0, n=charset.length; i < length; i++) {
+        passwordResult = charset.charAt(math.floor(mathrandom()*n));
+    }
+    return passwordResult;
+}
         //confirms they select at least one option.
         //if(passwordResult === '') {window.alert("please select 1 of the above.")}
     
