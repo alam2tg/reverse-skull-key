@@ -2,10 +2,10 @@
 //Create an auto-generated array of numbers
 //check if generated on chrome with console.log
 
-var lowercase = [];
-var uppercase = [];
-var numbers = [];
-var specialChars = [];
+var lowercaseArray = [];
+var uppercaseArray = [];
+var numbersArray= [];
+var specialCharsArray = [];
 
 //generate integer arrays to convert to characters using ascii value.
 var asciiLowercaseArray=[];
@@ -15,8 +15,8 @@ var asciiLowercaseArray=[];
     console.log(asciiLowercaseArray); 
 
 //generate ascii value
-var lowercase = asciiLowercaseArray.map((i)=>String.fromCharCode(i)); 
-console.log(lowercase); 
+var lowercaseArray = asciiLowercaseArray.map((i)=>String.fromCharCode(i)); 
+console.log(lowercaseArray); 
 
 
 
@@ -26,9 +26,9 @@ var asciiUpperArray=[];
     }
     console.log(asciiUpperArray);
 
-var uppercase = asciiUpperArray.map((i)=>String.fromCharCode(i));
+var uppercaseArray = asciiUpperArray.map((i)=>String.fromCharCode(i));
 
-console.log(uppercase);
+console.log(uppercaseArray);
 
 var asciiNumberArray = []
     for (var i=48; i<58; i++) {
@@ -36,8 +36,8 @@ var asciiNumberArray = []
     }
     console.log(asciiNumberArray);
 
-var numbers = asciiNumberArray.map((i)=>String.fromCharCode(i));
-console.log(numbers)
+var numbersArray = asciiNumberArray.map((i)=>String.fromCharCode(i));
+console.log(numbersArray)
 
 //Special Chars, created 4 different arrays and concated them, would've been easier to type them out tbh
 var specialChars = []
@@ -77,7 +77,7 @@ ascii table - https://www.w3schools.com/charsets/ref_html_ascii.asp
 
 I must admit, this was not worth it. */
 
-var specialChars = asciiSpecialCharsArray.map((i)=>String.fromCharCode(i));
+var specialCharsArray = asciiSpecialCharsArray.map((i)=>String.fromCharCode(i));
 
 console.log(specialChars);
 
@@ -87,6 +87,7 @@ console.log(specialChars);
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -102,36 +103,52 @@ generateBtn.addEventListener("click", writePassword);
 // Create the variables and get the info we need (Lines 1-82)
 
 // What do we need to do? 
-var availableChars = [] 
+var availableChars = []; 
+var lowercaseArray = [];
+var uppercaseArray = [];
+var numbersArray= [];
+var specialCharsArray = [];
+var allChars = '';
     //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++);
 
-    
- 
 
-var userInput = prompt("Please enter a password length between 8-128 characters.");
-    var invalidInputs = [userInput<8 || userInput>128];
+var userInput = window.prompt("Please enter a password length between 8-128 characters.");
     do {
-        userInput = prompt("Please enter a password length between 8-128 characters.");
-       // userInput=prompt("Please enter a password length between 8-128 characters.");
-       //if(invalidInputs.includes(userInput))
+        userInput = prompt("Please enter a password length between 8-128 characters.")
     }
     while (userInput<8 || userInput>128);
-    
-
 
     //confirm user for upper/lower case (yes no?) - use CONFIRM
         //if yes, add 'lowercase' -- confirms
         //if yes, add 'uppercase'
-    var lowercaseConfirm = 
-    confirm("Would you like to include lower-case letters? Type 'Yes' or 'No'")
-        
-    prompt("Would you like to include upper-case letters?");
+if (window.confirm("Would you like to include lowercase letters in your password?")) 
+    {
+        availableChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
+    }
+
+
+if (window.confirm("Would you like to include uppercase letters in your password?")) 
+    {
+        availableChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
+    }
+
     //confirm user if they'd like to use numbers
-    prompt("Would you like to include numbers?");    
+if (window.confirm("Would you like to include numbers in your password?")) 
+    {
+        availableChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
+    }
+
+    
     //confirm user if they'd like to use special characters
-    prompt("Would you like to include special characters? (ex. !@#$%)");
+if (window.confirm("Would you like to include special letters in your password?")) 
+    {
+        availableChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
+    }   
+console.log(availableChars);
+       
         //if yes, add 'special characters'
     //Create a pool of available characters
+
         //available chars are added if user confirms 'YES'
         //available chars are NOT added if user confirms 'NO'
 
