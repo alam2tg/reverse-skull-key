@@ -113,53 +113,53 @@ function writePassword() {
     //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++);
 
 
-    var userInput = window.prompt("Please enter a password length between 8-128 characters.");
+let userInput = window.prompt("Please enter a password length between 8-128 characters.");
         do {
             userInput = prompt("Please enter a password length between 8-128 characters.")
         }
         while (userInput<8 || userInput>128);
 
+    
     //confirm user for upper/lower case (yes no?) - use CONFIRM
         //if yes, add 'lowercase' -- confirms
         //if yes, add 'uppercase'
     if (window.confirm("Would you like to include lowercase letters in your password?")) 
-        {
-            availableChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
-            passwordResult += lowercaseArray;
-            n--;
-        }
-
+            {
+                availableChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
+                passwordResult += lowercaseArray;
+                n--;
+            }
 
     if (window.confirm("Would you like to include uppercase letters in your password?")) 
-        {
-            availableChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
-            passwordResult += uppercaseArray;
-            n--;
-        }
+            {
+                availableChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
+                passwordResult += uppercaseArray;
+                n--;
+            }
 
         //confirm user if they'd like to use numbers
     if (window.confirm("Would you like to include numbers in your password?")) 
-        {
-            availableChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
-            password += numbersArray;
-            n--;
-        }
+            {
+                availableChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
+                password += numbersArray;
+                n--;
+            }
         
         //confirm user if they'd like to use special characters
     if (window.confirm("Would you like to include special letters in your password?")) 
-        {
-            availableChars.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
-            passwordResult += specialCharsArray;
-            n--;
-        }   
+            {
+                availableChars.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
+                passwordResult += specialCharsArray;
+                n--;
+            }   
     console.log(availableChars);
         //confirms they select at least one option.
-    if(passwordResult === '') {window.alert("please select 1 of the above.")}
+        if(passwordResult === '') {window.alert("please select 1 of the above.")}
     
         
     //Create a pool of available characters
-    for (let i = 0; i < n; i++) {
-        result.push(passwordResult[Math.floor(Math.random() * passwordResult.length)])
+        for (let i = 0; i < n; i++) {
+            result.push(passwordResult[Math.floor(Math.random() * passwordResult.length)])
     }
 }
         //available chars are added if user confirms 'YES'
