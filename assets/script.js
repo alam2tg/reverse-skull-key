@@ -19,7 +19,7 @@ var lowercaseArray = asciiLowercaseArray.map((i)=>String.fromCharCode(i));
 console.log(lowercaseArray); 
 
 
-
+//Upper Case Array
 var asciiUpperArray=[];
     for (var i=65; i<91; i++) {
         asciiUpperArray.push(i);
@@ -27,9 +27,9 @@ var asciiUpperArray=[];
     console.log(asciiUpperArray);
 
 var uppercaseArray = asciiUpperArray.map((i)=>String.fromCharCode(i));
-
 console.log(uppercaseArray);
 
+//Numbers Array
 var asciiNumberArray = []
     for (var i=48; i<58; i++) {
         asciiNumberArray.push(i)
@@ -81,10 +81,7 @@ console.log(specialCharsArray);
 ascii table - https://www.w3schools.com/charsets/ref_html_ascii.asp*/
 
 //check available chars
-var availableChars = lowercaseArray.concat(
-    uppercaseArray.concat(
-        numbersArray.concat(specialCharsArray)))
-
+var availableChars = lowercaseArray.concat(uppercaseArray.concat(numbersArray.concat(specialCharsArray)))
 console.log(availableChars);
 
 
@@ -105,14 +102,12 @@ generateBtn.addEventListener("click", writePassword);
 
 // PHASE 1 
 // Create the variables and get the info we need (Lines 1-82)
-
 // What do we need to do? 
     //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++)
 
 function generatePassword() {
     let passwordResult = [];
     let addChars = '';
-
     let userInput = window.prompt("Please enter a password length between 8-128 characters.")
 
     if(userInput < 8 || userInput > 128) {
@@ -142,12 +137,18 @@ function generatePassword() {
                         
                         //confirm user if they'd like to use special characters
             if (window.confirm("Would you like to include special letters in your password?")) {
-                    passwordResult.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
+                    passwordResult.push(specialCharsArray[Math.floor(Math.random() * specialCharsArray.length)]);
                     addChars += specialCharsArray;
-            }   
-    }
-    passwordResult = passwordResult.join('');
-    return passwordResult;
+            }
+            
+
+            for (i=0; i < userInput; i++){
+                passwordResult.push(addChars[Math.floor(Math.random() * userInput.length)]);
+            }  
+            passwordResult = passwordResult.join('');
+            return passwordResult;
+  
+    }  
 }
 
         //confirms they select at least one option.
