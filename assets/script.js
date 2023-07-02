@@ -109,9 +109,9 @@ generateBtn.addEventListener("click", writePassword);
 // What do we need to do? 
     //must PROMPT use for length of word (8-128)(use PROMPT)var validinput=  for (i=8; i<129; i++)
 
-function writePassword() {
-    let addChars = [];
-    let passwordResult = '';
+function generatePassword() {
+    let passwordResult = [];
+    let addChars = '';
 
     let userInput = window.prompt("Please enter a password length between 8-128 characters.")
 
@@ -122,43 +122,34 @@ function writePassword() {
         //if yes, add 'lowercase' -- confirm
             if (window.confirm("Would you like to include lowercase letters in your password?")) {
                     
-                    addChars.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
-                    passwordResult += lowercaseArray;
+                    passwordResult.push(lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]);
+                    addChars += lowercaseArray;
             }
 
                         //if yes, add 'uppercase' -- confirm
 
             if (window.confirm("Would you like to include uppercase letters in your password?")) {
                             
-                    addChars.push(uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]);
-                    passwordResult += uppercaseArray;
+                    passwordResult.push(uppercaseArray[Math.floor(Math.random() * uppercaseArray.length)]);
+                    addChars += uppercaseArray;
             }
 
                         //confirm user if they'd like to use numbers
             if (window.confirm("Would you like to include numbers in your password?")) {
-                    addChars.push(numbersArray[Math.floor(Math.random()*numbersArray.length)]);
-                    password += numbersArray;
+                    passwordResult.push(numbersArray[Math.floor(Math.random() * numbersArray.length)]);
+                    addChars += numbersArray;
             }
                         
                         //confirm user if they'd like to use special characters
             if (window.confirm("Would you like to include special letters in your password?")) {
-                    addChars.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
-                    passwordResult += specialCharsArray;
+                    passwordResult.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
+                    addChars += specialCharsArray;
             }   
     }
     passwordResult = passwordResult.join('');
     return passwordResult;
 }
 
-function generatePassword() {
-    var length = availableChars.length
-    var charset = availableChars
-    passwordResult = '';
-    for (var i=0, n=charset.length; i < length; i++) {
-        passwordResult = charset.charAt(math.floor(mathrandom()*n));
-    }
-    return passwordResult;
-}
         //confirms they select at least one option.
         //if(passwordResult === '') {window.alert("please select 1 of the above.")}
     
