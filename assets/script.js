@@ -138,9 +138,10 @@ function generatePassword() {
                     passwordResult.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
                     addChars += specialCharsArray;
             }
+            
                         //make sure password correct length
             for (let i=4; i < userInput; i++){
-                passwordResult.push(addChars[Math.floor(Math.random()*addChars.length)]);
+                passwordResult.push(addChars[Math.floor(Math.random(addChars.length)*addChars.length)]);
             }  
             passwordResult = passwordResult.join('');
             return passwordResult;
