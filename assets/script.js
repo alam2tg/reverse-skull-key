@@ -122,7 +122,6 @@ function generatePassword() {
             }
 
                         //if yes, add 'uppercase' -- confirm
-
             if (window.confirm("Would you like to include uppercase letters in your password?")) {
                             
                     passwordResult.push(uppercaseArray[Math.floor(Math.random() * uppercaseArray.length)]);
@@ -133,49 +132,17 @@ function generatePassword() {
             if (window.confirm("Would you like to include numbers in your password?")) {
                     passwordResult.push(numbersArray[Math.floor(Math.random() * numbersArray.length)]);
                     addChars += numbersArray;
-            }
-                        
+            }     
                         //confirm user if they'd like to use special characters
             if (window.confirm("Would you like to include special letters in your password?")) {
-                    passwordResult.push(specialCharsArray[Math.floor(Math.random() * specialCharsArray.length)]);
+                    passwordResult.push(specialCharsArray[Math.floor(Math.random()*specialCharsArray.length)]);
                     addChars += specialCharsArray;
             }
-            
-
-            for (i=0; i < userInput; i++){
-                passwordResult.push(addChars[Math.floor(Math.random() * userInput.length)]);
+                        //make sure password correct length
+            for (let i=4; i < userInput; i++){
+                passwordResult.push(addChars[Math.floor(Math.random()*addChars.length)]);
             }  
             passwordResult = passwordResult.join('');
             return passwordResult;
-  
     }  
 }
-
-        //confirms they select at least one option.
-        //if(passwordResult === '') {window.alert("please select 1 of the above.")}
-    
-        
-    //Create a pool of available characters
-
-
-
-        //available chars are added if user confirms 'YES'
-        //available chars are NOT added if user confirms 'NO'
-
-          /*Edge Cases - 
-            charcter length less than 8 characters
-            character length longer than 128 characters
-            user does not confirm "YES" to pool of available characters
-            user types out numbers... ex. "twelve" */
-
-// PHASE 2
-//What values do we need?
-    //Create password variable that is an empty string
-    //create a 'for' loop that runs '.length' number of times
-    //in for loop, generate a single random character and append this character to our password
-        //FOR LOOP STEPS
-            //create a random number between 0 and length consisting of our available pool character types array depending on user selection
-            //select 1 element from array of availablechars at index random number we generate
-            //var newChar = avilablechars[randomNum]
-            //append this new element to password variable
-
