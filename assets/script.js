@@ -147,3 +147,36 @@ function generatePassword() {
             return passwordResult;
     }  
 }
+
+//potential solution, subtract characters from available char array
+
+// function generatePassword() {
+//     var passwordResult = [];
+//     var userInput = window.prompt("Please enter a password length between 8-128 characters.")
+//     var lowercaseConfirm = lowercaseArray
+
+//     if(userInput < 8 || userInput > 128) {
+//             window.alert("Please enter a value between 8-128");
+//     } else {  
+//     //confirm user for upper/lower/number/special (yes no?) - use CONFIRM
+//         //if yes, add 'lowercase' -- confirm
+//             if (window.confirm("Would you like to include lowercase letters in your password?") == false) 
+//                 availableCharsSet.splice(lowercaseConfirm);
+            
+//             if (window.confirm("Would you like to include uppercase letters in your password?") == false) {
+//                 availableCharsSet.splice(upperCaseArray);}
+//             if (window.confirm("Would you like to include numbers in your password?") == false) {
+//                 availableCharsSet.splice(numbersArray);}
+            
+                
+//             if (window.confirm("Would you like to include special letters in your password?") == false) {
+//                 availableChars.splice(specialCharsArray)}
+
+//             for (let i=4; i < userInput; i++){
+//                 passwordResult.push(availableChars[Math.floor(Math.random(availableChars.length)*(userInput.value))]);
+//             }  
+
+//             console.log(passwordResult);
+//             return passwordResult;
+//     }  
+// }

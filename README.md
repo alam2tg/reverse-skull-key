@@ -35,3 +35,6 @@ Screenshots for the process below!
 ## Credits
 Gumbo on StackOverflow
 https://stackoverflow.com/questions/1497481/javascript-password-generator
+
+## Badges
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
